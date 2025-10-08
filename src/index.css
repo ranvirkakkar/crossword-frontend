@@ -1,0 +1,565 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@600&display=swap');
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+  20%, 40%, 60%, 80% { transform: translateX(10px); }
+}
+
+.animate-shake {
+  animation: shake 0.6s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.animate-confetti {
+  animation: confetti-fall 3s ease-in forwards;
+}
+
+@keyframes modalSlideIn {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-modalSlideIn {
+  animation: modalSlideIn 0.3s ease-out forwards;
+}
+
+.st-app {
+  min-height: 100%;
+  background: #f4f5f7;
+  color: #111827;
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.5rem, 3vw, 3rem);
+}
+
+.st-app--minimal {
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+}
+
+.st-main {
+  position: relative;
+  width: min(960px, 100%);
+  padding-top: 4rem;
+}
+
+.st-admin-link {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.4rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #1d4ed8 0%, #9333ea 100%);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  box-shadow: 0 20px 40px rgba(79, 70, 229, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.st-admin-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 24px 48px rgba(79, 70, 229, 0.45);
+}
+
+.st-admin-link:focus-visible {
+  outline: 3px solid #bfdbfe;
+  outline-offset: 3px;
+}
+
+.st-game-article {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: clamp(1.75rem, 2.5vw, 3rem);
+  box-shadow: 0 25px 55px rgba(15, 23, 42, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+.st-confetti-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 40;
+}
+
+.st-confetti-piece {
+  position: absolute;
+  top: -12px;
+  width: 12px;
+  height: 14px;
+  border-radius: 2px;
+}
+
+.st-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 50;
+}
+
+.st-modal {
+  background: #ffffff;
+  border-radius: 18px;
+  max-width: 360px;
+  width: 100%;
+  text-align: center;
+  padding: 2.75rem 2.25rem;
+  box-shadow: 0 35px 60px rgba(15, 23, 42, 0.24);
+}
+
+.st-modal h2 {
+  margin: 1rem 0 0.5rem;
+  font-size: 1.85rem;
+  font-family: 'Playfair Display', serif;
+  color: #0f172a;
+}
+
+.st-modal p {
+  margin: 0 0 1.75rem;
+  color: #475569;
+}
+
+.st-modal-emoji {
+  font-size: 3.5rem;
+}
+
+.st-modal-time {
+  font-size: 2.4rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  color: #2563eb;
+  margin-bottom: 1.75rem;
+}
+
+.st-modal button {
+  padding: 0.65rem 2.5rem;
+  border-radius: 999px;
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.st-modal button:hover {
+  background: #2563eb;
+}
+
+.st-article-header {
+  border-bottom: 2px solid #111827;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.75rem;
+  position: relative;
+}
+
+.st-article-title {
+  margin: 0;
+  font-size: clamp(2rem, 2.5vw, 2.6rem);
+  font-family: 'Playfair Display', serif;
+  color: #111827;
+}
+
+.st-article-tail {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 72px;
+  height: 4px;
+  background: linear-gradient(90deg, #2563eb 0%, #9333ea 100%);
+}
+
+.st-game-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  margin-top: 2rem;
+}
+
+.st-game-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.2rem;
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  border: 1px solid #d1d5db;
+  border-radius: 14px;
+  padding: 1.15rem 1.5rem;
+}
+
+.st-tool-label {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.7rem;
+  color: #64748b;
+  font-weight: 700;
+}
+
+.st-game-toolbar p {
+  margin: 0;
+  flex: 1 1 auto;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.st-clue-number {
+  color: #2563eb;
+  margin-right: 0.5rem;
+}
+
+.st-timer {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.st-game-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.st-game-board,
+.st-game-clues {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 16px;
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.1);
+  padding: 1.75rem;
+}
+
+.st-game-board {
+  flex: 1 1 360px;
+}
+
+.st-game-board svg {
+  width: 100%;
+  height: auto;
+}
+
+.st-game-clues {
+  flex: 1 1 280px;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.st-clue-column {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.st-clue-column h3 {
+  margin: 0 0 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.75rem;
+  color: #64748b;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.st-clue-column ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.st-clue-column li {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #1f2937;
+  border-radius: 8px;
+  padding: 0.35rem 0.4rem;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.st-clue-column li:hover {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.st-clue-index {
+  font-weight: 700;
+  margin-right: 0.5rem;
+  display: inline-block;
+  width: 2.1rem;
+}
+
+.st-game-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.st-game-actions button {
+  border: none;
+  border-radius: 999px;
+  background: #0f172a;
+  color: #ffffff;
+  padding: 0.7rem 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.st-game-actions button:hover:not(:disabled) {
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+
+.st-game-actions button:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.st-admin-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem 0 0;
+}
+
+.st-admin-card {
+  width: min(720px, 100%);
+  background: #ffffff;
+  border-radius: 18px;
+  padding: clamp(1.75rem, 2.5vw, 2.75rem);
+  box-shadow: 0 25px 55px rgba(15, 23, 42, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.st-admin-header h1 {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.9rem, 2.35vw, 2.3rem);
+  color: #111827;
+}
+
+.st-admin-header p {
+  margin: 0.75rem 0 1.5rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.st-admin-alert {
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1.1rem;
+}
+
+.st-admin-alert--success {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #34d399;
+}
+
+.st-admin-alert--error {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fca5a5;
+}
+
+.st-admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.st-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.st-form-field label {
+  font-weight: 700;
+  color: #1f2937;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.st-form-field input,
+.st-form-field textarea {
+  border: 1px solid #cbd5f5;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  font-family: 'Open Sans', sans-serif;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  color: #0f172a;
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.08);
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.st-form-field textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.st-form-field input:focus,
+.st-form-field textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+.st-form-field p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+.st-form-field code {
+  background: #f1f5f9;
+  padding: 0.1rem 0.35rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+.st-form-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.st-button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.75rem 1.9rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.st-button--primary {
+  background: linear-gradient(135deg, #1d4ed8 0%, #9333ea 100%);
+  color: #ffffff;
+  box-shadow: 0 18px 35px rgba(79, 70, 229, 0.35);
+}
+
+.st-button--primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 22px 40px rgba(79, 70, 229, 0.45);
+}
+
+.st-button--primary:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 1024px) {
+  .st-body-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .st-sidebar {
+    order: -1;
+  }
+}
+
+@media (max-width: 920px) {
+  .st-header-top-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .st-utility-nav ul {
+    flex-wrap: wrap;
+  }
+
+  .st-game-clues {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 640px) {
+  .st-wrapper {
+    width: min(100% - 1.5rem, 100%);
+  }
+
+  .st-primary-nav ul,
+  .st-section-nav ul,
+  .st-secondary-nav ul {
+    gap: 1rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .st-primary-nav ul::-webkit-scrollbar,
+  .st-section-nav ul::-webkit-scrollbar,
+  .st-secondary-nav ul::-webkit-scrollbar {
+    display: none;
+  }
+
+  .st-game-board,
+  .st-game-clues {
+    padding: 1.25rem;
+  }
+
+  .st-admin-card {
+    padding: 1.5rem;
+  }
+
+  .st-game-toolbar {
+    align-items: flex-start;
+  }
+
+  .st-timer {
+    font-size: 1.3rem;
+  }
+}
+
