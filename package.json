@@ -38,7 +38,7 @@
     ]
   },
   "devDependencies": {
+    "baseline-browser-mapping": "^2.9.14",
     "tailwindcss": "^4.1.14"
   }
 }
-
