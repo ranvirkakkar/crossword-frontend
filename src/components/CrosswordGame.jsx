@@ -363,7 +363,7 @@ const CrosswordGame = () => {
     }, []);
 
     if (loading) {
-        return <div className="st-game-error text-center my-16 mx-auto max-w-md">Loading Puzzle...</div>;
+        return <div className="st-game-error text-center my-16 mx-auto max-w-md">Server is waking up...</div>;
     }
 
     if (error) {
