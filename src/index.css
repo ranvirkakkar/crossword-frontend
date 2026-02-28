@@ -494,6 +494,12 @@ code {
   transform: translateY(0);
 }
 
+.st-game-error {
+  color: #ffffff !important;
+  padding: 2rem;
+  font-weight: 700;
+}
+
 @media (max-width: 1024px) {
   .st-body-wrapper {
     grid-template-columns: 1fr;

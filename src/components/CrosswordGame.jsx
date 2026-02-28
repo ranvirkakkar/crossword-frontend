@@ -363,12 +363,16 @@ const CrosswordGame = () => {
     }, []);
 
     if (loading) {
-        return <div className="w-full font-sans flex flex-col items-center justify-center py-16 text-gray-800 dark:text-gray-200 text-xl">Loading Puzzle...</div>;
+        return <div className="st-game-error text-center my-16 mx-auto max-w-md">Loading Puzzle...</div>;
     }
 
     if (error) {
-        return <div className="w-full font-sans flex flex-col items-center justify-center py-16 text-red-500 text-xl p-4 text-center">{error}</div>;
-    }
+    return (
+        <div className="st-game-error text-center my-16 mx-auto max-w-md">
+            {error}
+        </div>
+    );
+}
 
     const activeClueData = getActiveClueData();
 
