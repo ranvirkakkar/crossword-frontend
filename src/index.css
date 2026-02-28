@@ -78,8 +78,9 @@ code {
 
 .st-admin-link {
   position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 10;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
@@ -496,8 +497,18 @@ code {
 
 .st-game-error {
   color: #ffffff !important;
-  padding: 2rem;
+  max-width: 80%;
+  font-size: 3rem;
   font-weight: 700;
+  margin: 0 auto;
+}
+
+.st-game-article.flex {
+  display: flex;
+}
+
+.st-game-article.flex-col {
+  flex-direction: column;
 }
 
 @media (max-width: 1024px) {

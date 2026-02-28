@@ -368,9 +368,18 @@ const CrosswordGame = () => {
 
     if (error) {
     return (
-        <div className="st-game-error text-center my-16 mx-auto max-w-md">
-            {error}
-        </div>
+        <article className="st-game-article flex flex-col min-h-[500px]">
+            <header className="st-article-header">
+                <h2 className="st-article-title">Symmetric Mini Crossword</h2>
+                <div className="st-article-tail" aria-hidden="true"></div>
+            </header>
+
+            <div className="flex-grow flex items-center justify-center">
+                <div className="st-game-error text-center !text-red-600 font-bold leading-tight">
+                    {error}
+                </div>
+            </div>
+        </article>
     );
 }
 
