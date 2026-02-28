@@ -1,21 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@600&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 html, body, #root {
   height: 100%;
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Poppins', 'Open Sans', 'sans-serif';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Poppins', 'Open Sans', 'sans-serif';
 }
 
 @keyframes shake {
@@ -62,7 +59,7 @@ code {
   min-height: 100%;
   background: #f4f5f7;
   color: #111827;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Poppins', 'Open Sans', 'sans-serif';
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,7 +67,7 @@ code {
 }
 
 .st-app--minimal {
-  background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+  background: #000000;
 }
 
 .st-main {
@@ -88,18 +85,16 @@ code {
   gap: 0.4rem;
   padding: 0.55rem 1.4rem;
   border-radius: 999px;
-  background: linear-gradient(135deg, #1d4ed8 0%, #9333ea 100%);
-  color: #ffffff;
+  background: #1d4ed8;
+  color: #000000;
   text-decoration: none;
   font-weight: 700;
   letter-spacing: 0.04em;
-  box-shadow: 0 20px 40px rgba(79, 70, 229, 0.35);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease
 }
 
 .st-admin-link:hover {
   transform: translateY(-2px);
-  box-shadow: 0 24px 48px rgba(79, 70, 229, 0.45);
 }
 
 .st-admin-link:focus-visible {
@@ -111,7 +106,6 @@ code {
   background: #ffffff;
   border-radius: 18px;
   padding: clamp(1.75rem, 2.5vw, 3rem);
-  box-shadow: 0 25px 55px rgba(15, 23, 42, 0.12);
   position: relative;
   overflow: hidden;
 }
@@ -155,7 +149,7 @@ code {
 .st-modal h2 {
   margin: 1rem 0 0.5rem;
   font-size: 1.85rem;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Poppins', 'Open Sans', 'sans-serif';
   color: #0f172a;
 }
 
@@ -170,7 +164,7 @@ code {
 
 .st-modal-time {
   font-size: 2.4rem;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Poppins', 'Open Sans', 'sans-serif';
   font-weight: 600;
   color: #2563eb;
   margin-bottom: 1.75rem;
@@ -201,7 +195,7 @@ code {
 .st-article-title {
   margin: 0;
   font-size: clamp(2rem, 2.5vw, 2.6rem);
-  font-family: 'Playfair Display', serif;
+  font-family: 'Poppins', 'Open Sans', 'sans-serif';
   color: #111827;
 }
 
@@ -253,7 +247,7 @@ code {
 }
 
 .st-timer {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Poppins', 'Open Sans', 'sans-serif';
   font-size: 1.6rem;
   font-weight: 600;
   color: #0f172a;
@@ -381,7 +375,7 @@ code {
 
 .st-admin-header h1 {
   margin: 0;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Poppins', 'Open Sans', 'sans-serif';
   font-size: clamp(1.9rem, 2.35vw, 2.3rem);
   color: #111827;
 }
@@ -437,7 +431,7 @@ code {
   border-radius: 12px;
   padding: 0.75rem 1rem;
   font-size: 0.95rem;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Poppins', 'Open Sans', 'sans-serif';
   background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
   color: #0f172a;
   box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.08);
